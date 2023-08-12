@@ -1,1 +1,29 @@
-<p>registration works!</p>
+<div class="card">
+    <div class="card-header">Login</div>
+    <div class="card-body">
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email" class="form-control" />
+        <label class="form-label" for="form2Example1">Email address</label>
+      </div>
+  
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" class="form-control" />
+        <label class="form-label" for="form2Example2">Password</label>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a [routerLink]="['forgot-password']">forgot password</a>
+        <br>
+        <button class="btn btn-primary" type="button">Login</button>
+      </div>
+      <br>
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Not a member? <a [routerLink]="['registration']">Register</a></p>
+      </div>
+    </div>
+  </div>
+  
