@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { AutheticationService } from '../../services/authetication.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   faLock = faLock;
@@ -14,24 +15,24 @@ export class LoginComponent {
     email: new FormControl(''),
     password: new FormControl(''),
   });
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AutheticationService) {}
 
   ngOnInit(): void {
-    // if (this.auth.isLoggedIn()) {
-    //   this.router.navigate(['admin']);
-    // }
+    if (this.auth.isLoggedIn()) {
+      this.router.navigate(['dashboard']);
+    }
   }
   onSubmit(): void {
     if (this.loginForm.valid) {
-      // this.auth.login(this.loginForm.value).subscribe(
-      //   (result) => {
-      //     console.log(result);
-      //     this.router.navigate(['/admin']);
-      //   },
-      //   (err: Error) => {
-      //     alert(err.message);
-      //   }
-      // );
+      this.auth.login(this.loginForm.value).subscribe(
+        (result) => {
+          console.log(result);
+          this.router.navigate(['dashboard']);
+        },
+        (err: Error) => {
+          alert(err.message);
+        }
+      );
     }
   }
 }

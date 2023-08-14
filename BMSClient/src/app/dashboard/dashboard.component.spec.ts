@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthGuardComponent } from './auth-guard.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('AuthGuardComponent', () => {
-  let component: AuthGuardComponent;
-  let fixture: ComponentFixture<AuthGuardComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AuthGuardComponent]
+      declarations: [DashboardComponent]
     });
-    fixture = TestBed.createComponent(AuthGuardComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
